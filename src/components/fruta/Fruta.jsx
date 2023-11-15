@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Style from "./Fruta.module.css";
 
-const Fruta = ({ name, price, bus }) => {
+// eslint-disable-next-line react/prop-types
+const Fruta = ({ name, price, img, bus }) => {
     const [cantidad, setCantidad] = useState(0);
 
     const agregar = () => {
@@ -22,6 +23,7 @@ const Fruta = ({ name, price, bus }) => {
 
     return (
         <div className={Style.fruta}>
+            <img src={img} alt={img} height={"230px"} width={"300px"}/>
             <h2>Nombre: {name}</h2>
             <h3>Precio: ${price}</h3>
 
