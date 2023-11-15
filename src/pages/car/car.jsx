@@ -27,11 +27,12 @@ const Car = () => {
           const res = await peticion.json();
           const response = res.products;
 
+          //se preguntará si sabemos sobre el promise.all, estaba investigando y este me fue util y practico para lo que queria conseguir
           const fruitsoptained = await Promise.all(
             response.map(async ({ self_link, id }) => {
               const otrapet = await fetch(`https://api.predic8.de${self_link}`);
               if (!otrapet.ok) {
-                console.log("Peticion 2 falló");
+                console.log("Petición 2 falló");
               } else {
                 const otrapetres = await otrapet.json();
 
@@ -58,8 +59,6 @@ const Car = () => {
 
     getfruits();
   }, []);
-
-  //   console.log(searchfruits(acarreo));
 
   return (
     <>
